@@ -7,23 +7,13 @@ from . import forms
 
 
 # Create your views here.
-def home_view(request, *args, **kwargs):
-    
-    my_context = {
-        "my_text": "About the author"
-    }
-    return render(request,"home.html",my_context) 
-
-def Image_form_view(request):
-    form = ImageForm(request.POST or None)
-    if form.is_valid():
-         form.save()
-    context = {
-        'form' : form
-    }
-    return render(request, "Image_form.html", context)
 
 def image_create(request):
+    """
+    Función perteneciente a la vista que recibe los datos del formulario y se encarga de instanciar la imagen
+    @param request: recibe los datos (titulo,descripción,imagen) capturados luego del POST del formulario
+    @return render del formulario con el form vacío.
+    """
     if request.method == 'POST':
         form = forms.ImageForm(request.POST, request.FILES)
         if form.is_valid():
