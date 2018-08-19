@@ -12,24 +12,25 @@ def main():
     model= cargar_modelo('best_female_model.h5')
     model=compiler_modelo(model)
 
-#
-#  Carga un modelo previamente generado por keras, con formato .h5.
-#  @param nombre_modelo nombre del modelo .h5 que se desea cargar, sea tambien la ruta donde se ubica el modelo.
-#  @return regresa un objecto con el modelo de los pesos cargado.
+
 def cargar_modelo(nombre_modelo):
-
-
+    """
+    Carga un modelo previamente generado por keras, con formato .h5.
+    @param nombre_modelo nombre del modelo .h5 que se desea cargar, sea tambien la ruta donde se ubica el modelo.
+    @return regresa un objecto con el modelo de los pesos cargado.
+    """
     modelo_read=Sequential()
     modelo_read.load_weights(nombre_modelo,by_name=True)
 
     return modelo_read
 
-#
-#  Compila un modelo previamente cargado para luego ser ejecutado.
-#  @param modelo objecto con el modelo previamente cargado.
-#  @return modelo objecto con el modelo compilado.
-def compiler_modelo(modelo):
 
+def compiler_modelo(modelo):
+    """
+    Compila un modelo previamente cargado para luego ser ejecutado.
+    @param modelo objecto con el modelo previamente cargado.
+    @return modelo objecto con el modelo compilado.
+    """
     modelo.compile(loss='mean_squared_error',optimizer='adam',metrics=['binary_accuaracy'])
     print("Modelo Compilado")
     return modelo
