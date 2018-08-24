@@ -15,10 +15,12 @@ def cargar_modelo(nombre_modelo):
     @return regresa un objecto con el modelo de los pesos cargado.
     """
     modelo_read=Sequential()
-    modelo_read.load_weights(nombre_modelo,by_name=True)
 
-    return modelo_read
-
+    try:
+        modelo_read.load_weights(nombre_modelo,by_name=True)
+        return modelo_read
+    except:
+        return None
 
 def compiler_modelo(modelo):
     """
@@ -26,9 +28,12 @@ def compiler_modelo(modelo):
     @param modelo objecto con el modelo previamente cargado.
     @return modelo objecto con el modelo compilado.
     """
-    modelo.compile(loss='mean_squared_error',optimizer='adam',metrics=['binary_accuaracy'])
-    print("Modelo Compilado")
-    return modelo
+    try:
+        modelo.compile(loss='mean_squared_error',optimizer='adam',metrics=['binary_accuaracy'])
+        print("Modelo Compilado")
+        return modelo
+    except:
+        return None
 
     #si el objecto no es pasado por referencia y en vez solo se instacia a la funcion sea
     #model =compiler_modelo()
