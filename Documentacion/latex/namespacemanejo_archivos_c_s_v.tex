@@ -1,0 +1,50 @@
+\hypertarget{namespacemanejo_archivos_c_s_v}{}\section{manejo\+Archivos\+C\+SV Namespace Reference}
+\label{namespacemanejo_archivos_c_s_v}\index{manejo\+Archivos\+C\+SV@{manejo\+Archivos\+C\+SV}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacemanejo_archivos_c_s_v_af84ef6e5a0591162a0b781c11145845e}{leer\+Archivo\+C\+SV}} (nombre\+Archivo)
+\begin{DoxyCompactList}\small\item\em Abre y lee un archivo de tipo C\+SV. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacemanejo_archivos_c_s_v_a0c9d188d26bb6dea35ce440f32015b01}{generar\+Archivo\+C\+SV}} (nombre\+Archivo, datos)
+\begin{DoxyCompactList}\small\item\em Genera un nuevo archivo tipo C\+SV. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacemanejo_archivos_c_s_v_a0c9d188d26bb6dea35ce440f32015b01}\label{namespacemanejo_archivos_c_s_v_a0c9d188d26bb6dea35ce440f32015b01}} 
+\index{manejo\+Archivos\+C\+SV@{manejo\+Archivos\+C\+SV}!generar\+Archivo\+C\+SV@{generar\+Archivo\+C\+SV}}
+\index{generar\+Archivo\+C\+SV@{generar\+Archivo\+C\+SV}!manejo\+Archivos\+C\+SV@{manejo\+Archivos\+C\+SV}}
+\subsubsection{\texorpdfstring{generar\+Archivo\+C\+S\+V()}{generarArchivoCSV()}}
+{\footnotesize\ttfamily def manejo\+Archivos\+C\+S\+V.\+generar\+Archivo\+C\+SV (\begin{DoxyParamCaption}\item[{}]{nombre\+Archivo,  }\item[{}]{datos }\end{DoxyParamCaption})}
+
+
+
+Genera un nuevo archivo tipo C\+SV. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+Archivo} & nombre del archivo C\+SV en donde se desea guardar, por ejemplo\+: \char`\"{}new.\+csv\char`\"{}. \\
+\hline
+{\em datos} & tipo de dato Data\+Frame de la libreria Pandas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna un valor de True si no ocurrio ningun error al generar el archivo, y un False en caso contrario. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacemanejo_archivos_c_s_v_af84ef6e5a0591162a0b781c11145845e}\label{namespacemanejo_archivos_c_s_v_af84ef6e5a0591162a0b781c11145845e}} 
+\index{manejo\+Archivos\+C\+SV@{manejo\+Archivos\+C\+SV}!leer\+Archivo\+C\+SV@{leer\+Archivo\+C\+SV}}
+\index{leer\+Archivo\+C\+SV@{leer\+Archivo\+C\+SV}!manejo\+Archivos\+C\+SV@{manejo\+Archivos\+C\+SV}}
+\subsubsection{\texorpdfstring{leer\+Archivo\+C\+S\+V()}{leerArchivoCSV()}}
+{\footnotesize\ttfamily def manejo\+Archivos\+C\+S\+V.\+leer\+Archivo\+C\+SV (\begin{DoxyParamCaption}\item[{}]{nombre\+Archivo }\end{DoxyParamCaption})}
+
+
+
+Abre y lee un archivo de tipo C\+SV. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+Archivo} & nombre del archivo C\+SV que se desea leer, por ejemplo\+: \char`\"{}ejemplo.\+csv\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna los datos del archivo C\+SV como un Data\+Frame. 
+\end{DoxyReturn}
