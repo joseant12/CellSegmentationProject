@@ -4,13 +4,8 @@ from keras.layers.core import Dense
 from keras.models import model_from_json
 from keras.models import load_model
 
-model =None #variable donde se va a cargar el modelo .h5
+#model =None #variable donde se va a cargar el modelo .h5
 
-def main():
-
-
-    model= cargar_modelo('best_female_model.h5')
-    model=compiler_modelo(model)
 
 
 def cargar_modelo(nombre_modelo):
@@ -38,6 +33,3 @@ def compiler_modelo(modelo):
     #si el objecto no es pasado por referencia y en vez solo se instacia a la funcion sea
     #model =compiler_modelo()
     #puede que el modelo no se compile correctamente o no lo haga del todo.
-
-if __name__=="__main__":
-    main()
