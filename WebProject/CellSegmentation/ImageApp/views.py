@@ -17,7 +17,14 @@ def image_create(request):
     if request.method == 'POST':
         form = forms.ImageForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            for file in request.FILES.getlist('images'):
+                print("Imagen 111")
+                instance = Image(
+                    title = request.POST.get("title",""),
+                    description = request.POST.get("description",""),
+                    image_File=file
+                )
+            instance.save()
     else:
         form = forms.ImageForm()
     return render(request, 'Image_form.html', { 'form': form })

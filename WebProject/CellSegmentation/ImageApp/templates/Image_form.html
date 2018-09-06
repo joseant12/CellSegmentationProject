@@ -10,9 +10,13 @@
         <form  class="site-form" action="{% url 'images:create' %}" method="POST" enctype="multipart/form-data" >{% csrf_token %}
             <h1>FORMULARIO</h1>
             <table border="1">
-            {{ form }}
+                <!--  {{ form }} -->
+           
             </table>
-
+            <h2>Formulario 2</h2>
+                <input type="text" name="title">
+                <input type="text" name="description">
+                <input type="file" name="images" multiple>
             <input type=submit value='Create'>
         </form>
 
