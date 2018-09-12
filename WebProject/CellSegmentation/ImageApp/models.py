@@ -1,4 +1,5 @@
 from django.db import models
+from PIL import Image
 import uuid
 
 def images_directory_path(instance, filename):
@@ -26,6 +27,10 @@ class Image(models.Model):
     fk_Coleccion = models.ForeignKey(Coleccion, on_delete=models.CASCADE, default = False)
     image_File = models.FileField(default='defaul2.png',upload_to=images_directory_path)
     uploaded_at = models.DateTimeField(auto_now_add=True,blank=True)
-
+"""
+    def load_image_function(self):
+        pngfile = Image.open(self.image_File)
+        return pngfile.bits
+"""
 
 #condo = models.ForeignKey(Condo, on_delete=models.CASCADE, related_name='images')

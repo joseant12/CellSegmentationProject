@@ -1,4 +1,3 @@
-#./manage.py test ImageApp.test.TestImagenes
 import sys
 sys.path.append("..")
 from django.test import TestCase
@@ -13,4 +12,3 @@ class TestImagenes(TestCase):
                 form_data = {'titulo':'titulo','descripcion':'descripcion'}
                 form = ColeccionForm(data=form_data)
                 self.assertTrue(form.is_valid())
-
