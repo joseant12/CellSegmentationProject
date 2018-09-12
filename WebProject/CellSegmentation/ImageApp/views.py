@@ -28,6 +28,7 @@ def image_create(request):
                             fk_Coleccion = coleccion_padre,
                             image_File = file
                 )
+                print(instancia.load_image_function())
                 instancia.save()
     else:
         form = forms.ImageForm()
