@@ -30,7 +30,7 @@ class Image(models.Model):
 
     def load_image_function(self):
         pngfile = Image_Import.open(self.image_File)
-        return pngfile.size
+        return pngfile
 
 
 #condo = models.ForeignKey(Condo, on_delete=models.CASCADE, related_name='images')

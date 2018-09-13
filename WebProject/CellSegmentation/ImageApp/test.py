@@ -7,6 +7,13 @@ from .forms import ColeccionForm
 from . import forms
 
 class TestImagenes(TestCase):
+        def test_format(self):
+                coleccion_objeto = Coleccion()
+                image_objeto = Image()
+                image_objeto.image_File = SimpleUploadedFile(name='black.png', content=open('../../black.png', 'rb').read(), content_type='image/png')
+                image_objeto.fk_Coleccion = coleccion_objeto
+                self.assertEqual(image_objeto.load_image_function().format,'PNG')
+
         def test_add_photo(self):
                 coleccion_objeto = Coleccion()
                 coleccion_objeto.save()
@@ -21,7 +28,7 @@ class TestImagenes(TestCase):
                 image_objeto = Image()
                 image_objeto.image_File = SimpleUploadedFile(name='black.png', content=open('../../black.png', 'rb').read(), content_type='image/png')
                 image_objeto.fk_Coleccion = coleccion_objeto
-                self.assertEqual(image_objeto.load_image_function(),(275,183))
+                self.assertEqual(image_objeto.load_image_function().size,(275,183))
 
         def test_form(self):
                 form_data = {'titulo':'titulo','descripcion':'descripcion'}
