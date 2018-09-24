@@ -22,6 +22,7 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^images/', include('ImageApp.urls')),
+    url(r'^login/', include('Login.urls')),
     path(r'admin/', admin.site.urls),
 ]
 
