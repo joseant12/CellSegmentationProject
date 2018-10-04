@@ -6,16 +6,14 @@ def images_directory_path(instance, filename):
     return '/'.join(['images', str(instance.fk_Coleccion.id), str(uuid.uuid4().hex + ".png")])
 
 class Usuario(models.Model):
-    nombre: models.CharField(max_length=50,default=False)
-    email: models.CharField(max_length=25,default=False)
-    password: models.CharField(max_length=20)
+    nombre= models.CharField(max_length=50,blank=False)
+    email= models.CharField(max_length=25,default=False,blank=False)
+    password= models.CharField(max_length=20,default=False,blank=False)
 
 class Coleccion(models.Model):
     fk_Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default = False)
     titulo = models.CharField(max_length=16,default="DefaultTitle")
     descripcion = models.TextField(max_length=255,default="DefaultDescription")
-
-#falta usuario
 
 class Image(models.Model):
     """

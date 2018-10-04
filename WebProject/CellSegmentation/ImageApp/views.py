@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .forms import ImageForm
 from .models import Image
 from .models import Coleccion
+from .models import Usuario
 from . import forms
 
 
@@ -15,10 +16,13 @@ def image_create(request):
     @param request: recibe los datos (titulo,descripción,imagen) capturados luego del POST del formulario
     @return render del formulario con el form vacío.
     """
+    print(request.session["usuario_id"])
     if request.method == 'POST':
         form = forms.ImageForm(request.POST, request.FILES)
         if form.is_valid():
+            usuario_creador = Usuario.objects.get(id = request.session["usuario_id"])
             coleccion_padre = Coleccion(
+                            fk_Usuario = usuario_creador,
                             titulo = request.POST.get("title",""),
                             descripcion = request.POST.get("description",""),
             )
