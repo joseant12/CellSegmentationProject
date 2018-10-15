@@ -5,6 +5,9 @@ from .models import Image
 from .models import Coleccion
 from .models import Usuario
 from . import forms
+import sys
+sys.path.append('..')
+from CellSegmentation.Adaptador import Adaptador
 
 
 
@@ -34,6 +37,10 @@ def image_create(request):
                 )
                 print(instancia.load_image_function())
                 instancia.save()
+            Ad = Adaptador()
+            path = '../media/images/' + coleccion_padre.id + '/*.png'
+            print(path)
+            Ad.analizar(path)
     else:
         form = forms.ImageForm()
     return render(request, 'Image_form.html', { 'form': form })
