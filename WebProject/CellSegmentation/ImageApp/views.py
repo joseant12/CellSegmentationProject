@@ -38,7 +38,7 @@ def image_create(request):
                 print(instancia.load_image_function())
                 instancia.save()
             Ad = Adaptador()
-            path = '../media/images/' + coleccion_padre.id + '/*.png'
+            path = '../media/images/' + str(coleccion_padre.id) + '/*.png'
             print(path)
             Ad.analizar(path)
     else:

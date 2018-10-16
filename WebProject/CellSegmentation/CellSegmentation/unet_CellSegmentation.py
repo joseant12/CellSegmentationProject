@@ -40,8 +40,8 @@ def analyze(directorio):
     # Paths declaration
     print(os.getcwd())
     weights_path = 'pre_0_3_5.h5'
-    name = os.path.basename()[:-4]
-    pred_dir = name + '/preds/'
+    name = directorio[:-5]
+    pred_dir = name + 'preds/'
     predict(directorio,weights_path,pred_dir)
 
 
@@ -198,4 +198,4 @@ def predict(image_path,weights_path,pred_dir):
 
 
 if __name__ == '__main__':
-    predict('.')
+    pass

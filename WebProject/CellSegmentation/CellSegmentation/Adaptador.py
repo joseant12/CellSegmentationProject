@@ -5,5 +5,7 @@ class Adaptador():
         pass
 
     def analizar(self,path):
-        #h
+        """Función encargada de invocar el segmentador de células
+        @param path: Ubicación de la carpeta contenedora de las imágenes a analizar
+        """
         keras.analyze(path)

@@ -6,6 +6,11 @@ from ImageApp.models import Usuario
 
 
 def login_view(request):
+    """
+    Función perteneciente a la vista que recibe los datos del formulario y se encarga de instanciar el login
+    @param request: recibe los datos del usuario (email,password) capturados luego del POST del formulario
+    @return render del formulario con el form vacío.
+    """
     if request.method == 'POST':
         email = request.POST.get("usuario","")
         contrasena = request.POST.get("password","")
