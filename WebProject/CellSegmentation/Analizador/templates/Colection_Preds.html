@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <title>Resultados de coleccion</title>
+</head>
+<body>
+    <form action="{% url 'analizador:predict_collection' value=id_value %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+        <h3>Resultados de colección</h3>
+        <button type="submit" class="btn btn-primary">Analizar</button>
+        <hr>
+        {% if alert %}
+            <div class="alert alert-success" role="alert">
+                    El análisis se ha ejecutado con éxito!
+            </div>
+            <hr>
+        {% endif %}
+        <table class='table table-striped'>
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Prediction</th>
+                </tr>
+            </thead>
+            <body>
+                {% for i,p in img %}
+                    <tr>
+                        <th scope="row"><img src="{{ i }}" width="100" height="100"></th>
+                        <td><img src="{{ p }}" width="100" height="100"></td>
+                    </tr>
+                {% endfor %}
+            </body>
+        </table>    
+    </form>
+</body>
+</html>

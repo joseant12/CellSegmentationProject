@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.shortcuts import redirect
 from .forms import ImageForm
 from .models import Image
 from .models import Coleccion
@@ -19,7 +20,6 @@ def image_create(request):
     @param request: recibe los datos (titulo,descripción,imagen) capturados luego del POST del formulario
     @return render del formulario con el form vacío.
     """
-    print(request.session["usuario_id"])
     if request.method == 'POST':
         form = forms.ImageForm(request.POST, request.FILES)
         if form.is_valid():
@@ -37,10 +37,7 @@ def image_create(request):
                 )
                 print(instancia.load_image_function())
                 instancia.save()
-            Ad = Adaptador()
-            path = '../media/images/' + str(coleccion_padre.id) + '/*.png'
-            print(path)
-            Ad.analizar(path)
+            return redirect("analizador:list")
     else:
         form = forms.ImageForm()
-    return render(request, 'Image_form.html', { 'form': form })
+    return render(request, 'Image_form.html', { 'form': form})

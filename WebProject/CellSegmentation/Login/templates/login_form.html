@@ -16,6 +16,12 @@
         <div class="panel">
        <h2>Ingreso</h2>
        <p>Digite su email y contraseña</p>
+       {% if alert %}
+            <div class="alert alert-warning" role="alert">
+                    Los datos ingresados no coinciden, vuelvalo a intentar. 
+            </div>
+            <hr>
+        {% endif %}
        </div>
         <form action="" action="{% url 'login:auth' %}"  method="POST"> {% csrf_token %}
             <div class="form-group">
