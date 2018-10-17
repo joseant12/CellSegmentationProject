@@ -9,10 +9,11 @@
     <title>Document</title>
 </head>
 <body>
+    <img src="{% '../../media/saul.jpg' %}" alt="My image"/>
     <div class="row">
         <div class="col-md-2 col-md-offset-5">
         <form  class="site-form" action="{% url 'images:create' %}" method="POST" enctype="multipart/form-data" >{% csrf_token %}
-            <h2>FORMULARIO</h2>
+            <h2>Crear colección de imágenes</h2>
                 <h4>Título:</h4>
                 <input type="text" name="title">
                 <h4>Descripción:</h4>

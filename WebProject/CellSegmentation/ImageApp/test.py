@@ -46,3 +46,12 @@ class TestImagenes(TestCase):
                 form_data = {'titulo':'titulo','descripcion':'descripcion'}
                 form = ColeccionForm(data=form_data)
                 self.assertTrue(form.is_valid())
+
+        def test_add_user(self):
+                usuario = Usuario()
+                usuario.nombre = "Usuario prueba"
+                usuario.email = "usuario@user.com"
+                usuario.password = "pass123"
+                usuario.save()
+                self.assertEqual(Usuario.objects.count(), 1)
+
