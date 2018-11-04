@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-El archivo original lo puede encontar en https://github.com/Manojkl/Counting_coins/blob/master/count_coins.py
-"""
 
 from __future__ import print_function
 import numpy as np
@@ -34,7 +30,6 @@ def pintarCelulas(ruta):
     image =cv2.imread(ruta)
     cnts=getContornos(image)
     image[np.where(image!=[0])] = [255]
-
     for (i, c) in enumerate(cnts):
 
         (x, y, w, h) = cv2.boundingRect(c)
@@ -48,12 +43,10 @@ def pintarCelulas(ruta):
 
         ((centerX, centerY), radius) = cv2.minEnclosingCircle(c)
         cv2.putText(image,str(i),(int(centerX), int(centerY)), font, 0.3,(255,255,255))
-
-
     cv2.imshow('s',image)
     cv2.waitKey(0)
-    cv2.imwrite('j.png',image)
+    cv2.imwrite("9.png",image)
     return True
 
 
-pintarCelulas('114.png')
+pintarCelulas('22.png')

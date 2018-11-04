@@ -48,6 +48,9 @@ class TestImagenes(TestCase):
                 self.assertTrue(form.is_valid())
 
         def test_add_user(self):
+                """Función que evalua si la base de datos guarda satisfactoriamente la imagen
+                @return: resultado de prueba comparando si la colección de objetos tiene un tamaño de 1
+                """
                 usuario = Usuario()
                 usuario.nombre = "Usuario prueba"
                 usuario.email = "usuario@user.com"
