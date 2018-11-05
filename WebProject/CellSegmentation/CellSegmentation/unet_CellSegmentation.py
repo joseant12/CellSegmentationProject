@@ -24,12 +24,13 @@ from keras.layers import Input, concatenate
 from keras.layers import Conv2D, MaxPooling2D, Conv2DTranspose
 from keras.optimizers import Adam
 from keras import backend as K
+from .contador import pintarCelulas
 
 img_rows = 256
 img_cols = 256
 smooth = 1.
 os.chdir(os.path.dirname(__file__))
-def analyze(directorio):
+def analyze(directorio,coleccion):
     # Set channel configuration for backend
     K.set_image_data_format('channels_last')
 
@@ -42,7 +43,7 @@ def analyze(directorio):
     weights_path = 'pre_0_3_5.h5'
     name = directorio[:-5]
     pred_dir = name + 'preds/'
-    predict(directorio,weights_path,pred_dir)
+    predict(directorio,weights_path,pred_dir,coleccion)
 
 
 # Compute dice coeficient used in loss function
@@ -152,7 +153,7 @@ def get_unet():
     return model
 
 
-def predict(image_path,weights_path,pred_dir):
+def predict(image_path,weights_path,pred_dir,coleccion):
     
     print('-'*30)
     print('Loading and preprocessing test data...')
@@ -189,12 +190,16 @@ def predict(image_path,weights_path,pred_dir):
     print('-' * 30)
     if not os.path.exists(pred_dir):
         os.mkdir(pred_dir)
+        new_dir = pred_dir + "count/"
+        os.makedirs(new_dir)
     # Save predictions as images
     for image_pred, index in zip(imgs_mask_predict, range(x_test.shape[0])):
         image_pred = image_pred[:, :, 0]
         image_pred[image_pred > 0.5] *= 255.
         im = Image.fromarray(image_pred.astype(np.uint8))
-        im.save(os.path.join(pred_dir, str(test_id[index]) + '_pred.png'))
+        pred_img = os.path.join(pred_dir, str(test_id[index]) + '_pred.png')
+        im.save(pred_img)
+        pintarCelulas(pred_img,coleccion,str(test_id[index]))
 
 
 if __name__ == '__main__':

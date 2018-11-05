@@ -27,10 +27,11 @@
                 </tr>
             </thead>
             <body>
-                {% for i,p in img %}
+                {% for i,p,c in img %}
                     <tr>
-                        <th scope="row"><img src="{{ i }}" width="100" height="100"></th>
-                        <td><img src="{{ p }}" width="100" height="100"></td>
+                        <th scope="row"><img src="{{ i }}" width="150" height="150"></th>
+                        <td><img src="{{ p }}" width="150" height="150"></td>
+                        <td><img src="{{ c }}" width="150" height="150"></td>
                     </tr>
                 {% endfor %}
             </body>

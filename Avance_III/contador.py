@@ -43,8 +43,8 @@ def pintarCelulas(ruta):
 
         ((centerX, centerY), radius) = cv2.minEnclosingCircle(c)
         cv2.putText(image,str(i),(int(centerX), int(centerY)), font, 0.3,(255,255,255))
-    cv2.imshow('s',image)
-    cv2.waitKey(0)
+    #cv2.imshow('s',image)
+    #cv2.waitKey(0)
     cv2.imwrite("9.png",image)
     return True
 
