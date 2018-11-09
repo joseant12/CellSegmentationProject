@@ -50,15 +50,9 @@ def predict_collection(request, value):
         path = '../media/images/' + str(value) + '/*.png'
         Ad.analizar(path,value)
         alert = True
+    elif request.method == "GET":
+        print("aloja")
     img, preds, counts = has_preds(value)
-    """
-    del img[-1]
-    del preds[-1]
-    del counts[-1]
-    """
-    print(img)
-    print(preds)
-    print(counts)
     img = zip(img,preds,counts)
     return render(request, 'Colection_Preds.html', {'id_value':value, 'img':img, 'alert':alert})
 
@@ -70,3 +64,16 @@ def list_collections(request):
     usuario_creador = Usuario.objects.get(id = request.session["usuario_id"])
     colecciones = list(Coleccion.objects.filter(fk_Usuario = usuario_creador ))
     return render(request, 'Colection_List.html', {'colecciones':colecciones})
+
+def download_files(request, value):
+    print("hola")
+    alert = False
+    img, preds, counts = has_preds(45)
+    print(img)
+    img = zip(img,preds,counts)
+    
+    print("----------------------------------")
+    print(preds)
+    print("----------------------------------")
+    print(counts)
+    return render(request, 'Colection_Preds.html', {'id_value':value, 'img':img, 'alert':alert})

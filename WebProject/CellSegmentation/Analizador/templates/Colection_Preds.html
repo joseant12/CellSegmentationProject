@@ -9,6 +9,9 @@
     <title>Resultados de coleccion</title>
 </head>
 <body>
+    <form action="{% url 'analizador:download_files' value=id_value %}" method='GET'>
+        <button type='submit'> sort me</button>
+    </form>
     <form action="{% url 'analizador:predict_collection' value=id_value %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
         <h3>Resultados de colección</h3>
         <button type="submit" class="btn btn-primary">Analizar</button>
