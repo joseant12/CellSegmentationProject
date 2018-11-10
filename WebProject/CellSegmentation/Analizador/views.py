@@ -1,12 +1,24 @@
 from django.http import HttpResponse
+from django.conf import settings
 from django.shortcuts import render
 import os
+import shutil
 import sys
 sys.path.append('..')
 from ImageApp.models import Usuario
 from ImageApp.models import Coleccion
 from CellSegmentation.Adaptador import Adaptador
 from CellSegmentation.contador import pintarCelulas
+
+def create_zip(request):
+    shutil.make_archive("../media/zip_files/46/output_filename", 'zip', "../media/images/46")
+
+def get_variables(value):
+    img, preds, counts = has_preds(value)
+    img = zip(img,preds,counts)
+    coleccion_obj = Coleccion.objects.get(id = value)
+    print(preds)
+    return img, coleccion_obj.tiempo
 
 def has_preds(value):
     """Función que se encarga de crear las listas de imagenes y predicciones
@@ -52,9 +64,8 @@ def predict_collection(request, value):
         alert = True
     elif request.method == "GET":
         print("aloja")
-    img, preds, counts = has_preds(value)
-    img = zip(img,preds,counts)
-    return render(request, 'Colection_Preds.html', {'id_value':value, 'img':img, 'alert':alert})
+    img, tiempo = get_variables(value) 
+    return render(request, 'Colection_Preds.html', {'id_value':value, 'img':img, 'alert':alert, 'tiempo':tiempo})
 
 def list_collections(request):
     """Función que se encarga de listar las colecciones por usuario
@@ -66,14 +77,11 @@ def list_collections(request):
     return render(request, 'Colection_List.html', {'colecciones':colecciones})
 
 def download_files(request, value):
-    print("hola")
     alert = False
-    img, preds, counts = has_preds(45)
-    print(img)
-    img = zip(img,preds,counts)
-    
-    print("----------------------------------")
-    print(preds)
-    print("----------------------------------")
-    print(counts)
-    return render(request, 'Colection_Preds.html', {'id_value':value, 'img':img, 'alert':alert})
+    create_zip(request)
+    with open('../media/zip_files/46/output_filename.zip', 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/x-zip-compressed")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename('../media/zip_files/46/output_filename.zip')
+    img, tiempo = get_variables(value) 
+    #return render(request, 'Colection_Preds.html', {'id_value':value, 'img':img, 'alert':alert, 'tiempo':tiempo})
+    return response

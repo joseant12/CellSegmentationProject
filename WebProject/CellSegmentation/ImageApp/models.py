@@ -14,6 +14,7 @@ class Coleccion(models.Model):
     fk_Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default = False)
     titulo = models.CharField(max_length=16,default="DefaultTitle")
     descripcion = models.TextField(max_length=255,default="DefaultDescription")
+    tiempo = models.TextField(max_length=32,default="Sin analisis previo")
 
 class Image(models.Model):
     """
