@@ -192,6 +192,8 @@ def predict(image_path,weights_path,pred_dir,coleccion):
         os.mkdir(pred_dir)
         new_dir = pred_dir + "count/"
         os.makedirs(new_dir)
+        new_dir = pred_dir + "report/"
+        os.makedirs(new_dir)
     # Save predictions as images
     for image_pred, index in zip(imgs_mask_predict, range(x_test.shape[0])):
         image_pred = image_pred[:, :, 0]

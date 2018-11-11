@@ -9,9 +9,6 @@
     <title>Resultados de coleccion</title>
 </head>
 <body>
-    <form action="{% url 'analizador:download_files' value=id_value %}" method='GET'>
-        <button type='submit'> sort me</button>
-    </form>
     <form action="{% url 'analizador:predict_collection' value=id_value %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
         <h3>Resultados de colección</h3>
         <button type="submit" class="btn btn-primary">Analizar</button>
@@ -26,20 +23,24 @@
         <table class='table table-striped'>
             <thead>
                 <tr>
-                    <th scope="col">Image</th>
-                    <th scope="col">Prediction</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Predicción</th>
+                    <th scope="col">Clasificación</th>
                 </tr>
             </thead>
             <body>
                 {% for i,p,c in img %}
                     <tr>
-                        <th scope="row"><img src="{{ i }}" width="150" height="150"></th>
-                        <td><img src="{{ p }}" width="150" height="150"></td>
-                        <td><img src="{{ c }}" width="150" height="150"></td>
+                        <th scope="row"><img src="{{ i }}" width="256" height="256"></th>
+                        <td><img src="{{ p }}" width="256" height="256"></td>
+                        <td><img src="{{ c }}" width="256" height="256"></td>
                     </tr>
                 {% endfor %}
             </body>
         </table>    
+    </form>
+    <form action="{% url 'analizador:download_files' value=id_value %}" method='GET'>
+        <button type='submit' class="btn btn-info" >Descargar Archivos</button>
     </form>
 </body>
 </html>

@@ -46,4 +46,4 @@ def generarArchivoCSV(nombreArchivo, datos):
     except:
         return False
 
-#generarArchivoCSV('resultados.csv', getListaCelulas('22.png'))
+generarArchivoCSV('resultados.csv', getListaCelulas('114.png'))

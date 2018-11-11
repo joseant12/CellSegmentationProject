@@ -10,8 +10,8 @@ from ImageApp.models import Coleccion
 from CellSegmentation.Adaptador import Adaptador
 from CellSegmentation.contador import pintarCelulas
 
-def create_zip(request):
-    shutil.make_archive("../media/zip_files/46/output_filename", 'zip', "../media/images/46")
+def create_zip(value):
+    shutil.make_archive("../media/zip_files/"+str(value)+"/output_filename_"+str(value), 'zip', "../media/images/"+str(value))
 
 def get_variables(value):
     img, preds, counts = has_preds(value)
@@ -77,11 +77,10 @@ def list_collections(request):
     return render(request, 'Colection_List.html', {'colecciones':colecciones})
 
 def download_files(request, value):
-    alert = False
-    create_zip(request)
-    with open('../media/zip_files/46/output_filename.zip', 'rb') as fh:
+    create_zip(value)
+    with open('../media/zip_files/'+str(value)+'/output_filename_'+str(value)+'.zip', 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/x-zip-compressed")
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename('../media/zip_files/46/output_filename.zip')
-    img, tiempo = get_variables(value) 
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename('../media/zip_files/46/output_filename_'+str(value)+'.zip')
+    #img, tiempo = get_variables(value) 
     #return render(request, 'Colection_Preds.html', {'id_value':value, 'img':img, 'alert':alert, 'tiempo':tiempo})
     return response
