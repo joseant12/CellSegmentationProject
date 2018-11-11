@@ -22,11 +22,22 @@ def generar_informe(cnts):
     return df
 
 def getCantidadCelulas(ruta):
+      """Funcion cuenta la cantidad de objectos(células) que se encuentran
+        en una imagen
+        @param ruta :direccion donde se encutra la imagen, en la cual de va
+                     a contar los objectos
+       @return :total de objectos encontrados en la imagen
+    """
     image =cv2.imread(ruta)
     contornos=getContornos(image)
     return len(contornos)-1
 
 def getContornos(image):
+      """Funcion busca los contornos que se encuetran en una imagen(células)
+       @param image: una imagen ya cargada en memoria que previamente fue segmentada
+       return regresa una lista de lista de numeros de  que representan los contornos de los objetos(células)
+    """
+    
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) #escala de grises
     blurred = cv2.GaussianBlur(gray,(9,9),0)  #suavisado de imagen
     edge = cv2.Canny(blurred,30,150) # detecta bordes
@@ -35,6 +46,11 @@ def getContornos(image):
     return cnts
 
 def pintarCelulas(ruta, coleccion, nombre_Archivo):
+       """Funcion pinta los objectos encontrados en la imagen, ademas que enumera los objectos
+       y posteriomente guarda la imagen
+       @param ruta: La ubucacion donde se encuentra la imagen
+       Return true si la operacion tuvo exito
+    """
 
     image =cv2.imread(ruta)
     cnts=getContornos(image)
