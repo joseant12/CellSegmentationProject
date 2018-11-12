@@ -1,0 +1,192 @@
+{
+  "id": "d5751ed6-80ab-4abf-bbb8-39ae965088cd",
+  "version": "1.1",
+  "name": "DjangoTesting",
+  "url": "http://127.0.0.1:8000",
+  "tests": [{
+    "id": "0464fdbd-36d8-46cc-bf02-0048e86b572a",
+    "name": "TestLogin",
+    "commands": [{
+      "id": "a327ead3-8eb4-4e7d-ae1d-17e6992083d3",
+      "comment": "",
+      "command": "open",
+      "target": "/login/authentication/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8bf23506-6130-44ab-a2d0-34b339500cb6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4daf1a54-df30-4917-b55b-2fcfa90f7b1b",
+      "comment": "",
+      "command": "click",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css"],
+        ["css=h2", "css:finder"],
+        ["xpath=//body[@id='LoginForm']/div/div/div/div/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "34496deb-2929-47cc-bbaf-65f8c9aa1623",
+      "comment": "",
+      "command": "click",
+      "target": "id=usuario",
+      "targets": [
+        ["id=usuario", "id"],
+        ["name=usuario", "name"],
+        ["css=#usuario", "css"],
+        ["css=#usuario", "css:finder"],
+        ["xpath=//input[@id='usuario']", "xpath:attributes"],
+        ["xpath=//body[@id='LoginForm']/div/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cab783d3-134a-4910-8e83-ebbea7097b70",
+      "comment": "",
+      "command": "type",
+      "target": "id=usuario",
+      "targets": [
+        ["id=usuario", "id"],
+        ["name=usuario", "name"],
+        ["css=#usuario", "css"],
+        ["css=#usuario", "css:finder"],
+        ["xpath=//input[@id='usuario']", "xpath:attributes"],
+        ["xpath=//body[@id='LoginForm']/div/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "a@gmail.com"
+    }, {
+      "id": "05a8107c-f892-4765-9a13-e5ccb0a1c8ae",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//body[@id='LoginForm']/div/div/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "a"
+    }, {
+      "id": "153f2363-f962-424c-981e-a8a88380e21e",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-primary",
+      "targets": [
+        ["css=button.btn.btn-primary", "css"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//body[@id='LoginForm']/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "00e773ea-e80f-4a35-84b7-44c240c2dd93",
+      "comment": "",
+      "command": "click",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css"],
+        ["css=h3", "css:finder"],
+        ["xpath=//h3", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1da6002b-ba77-4776-95a7-61fe186dcabc",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css"],
+        ["css=h3", "css:finder"],
+        ["xpath=//h3", "xpath:position"]
+      ],
+      "value": "Seleccione la colección a explorar"
+    }]
+  }, {
+    "id": "c7c90d40-1800-471b-830d-2a57c5add352",
+    "name": "TestAnalisisCelulas",
+    "commands": [{
+      "id": "f4ea5e52-8f7a-46c3-b5ff-f10740a947b8",
+      "comment": "",
+      "command": "open",
+      "target": "/colection/list/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bc43a3ce-269a-4296-97a7-3300953125e0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ede666f5-8bd1-44a1-b4b1-33d00f56321a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=bo4",
+      "targets": [
+        ["linkText=bo4", "linkText"],
+        ["css=.list-group-item:nth-child(20) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'bo4')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/colection/predictions/51/')]", "xpath:href"],
+        ["xpath=//li[20]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f5fd1c6-7fc7-4356-a30a-4339be3d07f2",
+      "comment": "",
+      "command": "click",
+      "target": "css=button.btn.btn-primary",
+      "targets": [
+        ["css=button.btn.btn-primary", "css"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ac0a6a2-84fc-4917-b6e5-5a1b6e10a46e",
+      "comment": "",
+      "command": "click",
+      "target": "css=div.alert.alert-success",
+      "targets": [
+        ["css=div.alert.alert-success", "css"],
+        ["css=.alert", "css:finder"],
+        ["xpath=//div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "66c68b45-dc6b-4b7f-8df8-2c73b0cf4a6e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=div.alert.alert-success",
+      "targets": [
+        ["css=div.alert.alert-success", "css"],
+        ["css=.alert", "css:finder"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": "El análisis se ha ejecutado con éxito!"
+    }]
+  }],
+  "suites": [{
+    "id": "29ec9627-7a72-462f-8a8a-0cd4fd06bc6f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["0464fdbd-36d8-46cc-bf02-0048e86b572a"]
+  }],
+  "urls": ["http://127.0.0.1:8000/"],
+  "plugins": []
+}
